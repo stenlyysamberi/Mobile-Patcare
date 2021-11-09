@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/lyt_detail"
+    android:layout_height="match_parent"
+    tools:context=".DetailArtikel">
+
+    <ImageView
+        android:id="@+id/img_detail"
+        android:scaleType="centerCrop"
+        android:src="@drawable/doggy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <include layout="@layout/toolbar_profile" />
+
+    <LinearLayout
+        android:layout_marginBottom="20dp"
+        android:id="@+id/bg_detail"
+        android:layout_marginTop="100dp"
+        android:orientation="vertical"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textAllCaps="true"
+            android:id="@+id/detil_jenis"
+            android:gravity="center_horizontal"
+            android:padding="5dp"
+            android:background="@drawable/bg_text"
+            android:textColor="@color/white"
+            android:text="Dog"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/detil_judul"
+
+            android:textStyle="bold"
+            android:textSize="30dp"
+            android:textColor="@color/white"
+            android:text="Lorem ipsum dolor sit amet consectetur."
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/create_at"
+            android:shadowColor="@color/black"
+            android:textColor="@color/hit"
+            android:text="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat, corrupti."
+            android:textSize="15dp"
+            android:textStyle="normal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_below="@+id/bg_detail"
+        android:background="@drawable/bg_detail_artikel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/lyt_nav_detail"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginTop="40dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.cardview.widget.CardView
+                        app:cardCornerRadius="25dp"
+                        app:cardBackgroundColor="@color/black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:textStyle="bold"
+                            android:textColor="@color/white"
+                            android:padding="15dp"
+                            android:text="By admin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_marginLeft="5dp"
+                        app:cardCornerRadius="25dp"
+                        app:cardBackgroundColor="@color/hit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:textStyle="bold"
+                            android:textColor="@color/white"
+                            android:padding="15dp"
+                            android:text="2 Jam"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                    </androidx.cardview.widget.CardView>
+
+
+
+                </LinearLayout>
+
+                <TextView
+                    android:lineSpacingMultiplier="1.3"
+                    android:textColor="@color/textCOlor"
+                    android:text=" Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci, eaque perspiciatis consequuntur voluptas ut quod autem ad sunt ipsa mollitia quasi! Asperiores necessitatibus voluptatibus adipisci odio natus officia quidem quo numquam, cumque quaerat, accusantium eius, sequi porro. Sit repudiandae, quam ratione dolores fuga ipsum adipisci natus obcaecati inventore? Animi beatae sequi necessitatibus assumenda impedit non perferendis minus suscipit rem veritatis vero cum, inventore nobis molestiae aspernatur voluptas. Quo amet optio est incidunt iure ab molestiae, totam, eius porro natus eum sapiente id velit nemo consectetur tempora saepe consequuntur deserunt reiciendis tempore deleniti impedit dolor laborum. Laboriosam repellat deserunt molestiae cupiditate! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci, eaque perspiciatis consequuntur voluptas ut quod autem ad sunt ipsa mollitia quasi! Asperiores necessitatibus voluptatibus adipisci odio natus officia quidem quo numquam, cumque quaerat, accusantium eius, sequi porro. Sit repudiandae, quam ratione dolores fuga ipsum adipisci natus obcaecati inventore? Animi beatae sequi necessitatibus assumenda impedit non perferendis minus suscipit rem veritatis vero cum, inventore nobis molestiae aspernatur voluptas. Quo amet optio est incidunt iure ab molestiae, totam, eius porro natus eum sapiente id velit nemo consectetur tempora saepe consequuntur deserunt reiciendis tempore deleniti impedit dolor laborum. Laboriosam repellat deserunt molestiae cupiditate!"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_below="@+id/lyt_nav_detail"
+                    android:id="@+id/detil_isi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </RelativeLayout>
+
+
+        </ScrollView>
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

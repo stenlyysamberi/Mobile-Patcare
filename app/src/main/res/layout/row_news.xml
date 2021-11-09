@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/summer_color"
+    android:layout_height="wrap_content">
+
+            <androidx.cardview.widget.CardView
+                app:cardBackgroundColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                cardCornerRadius="10dp"
+                cardElevation="10dp"
+                android:padding="10dp">
+
+                <RelativeLayout
+                    android:background="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical">
+
+                    <androidx.cardview.widget.CardView
+
+                        app:cardCornerRadius="30dp"
+                        android:id="@+id/lyt_img1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/doggy"
+                            android:id="@+id/img1"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"/>
+
+                    </androidx.cardview.widget.CardView>
+
+
+
+                    <TextView
+                        android:lines="1"
+                        android:id="@+id/judul"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="30dp"
+                        android:layout_toRightOf="@id/lyt_img1"
+                        android:text="Judul"
+                        android:textColor="#1C1C1C"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+
+                        android:padding="5dp"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/btn_chat"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:gravity="center"
+                        android:text="Chat"
+                        android:textColor="@color/white"
+                        android:textSize="20dp" />
+
+                    <TextView
+                        android:text="hallo"
+                        android:textColor="@color/black"
+                        android:layout_marginLeft="20dp"
+                        android:id="@+id/date"
+                        android:layout_below="@+id/judul"
+                        android:layout_toRightOf="@id/lyt_img1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/tanggal"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Cardiologist Specialist"-->
+<!--                        android:textColor="@color/teal_200"-->
+<!--                        android:layout_below="@id/judul"-->
+<!--                        android:layout_toRightOf="@id/img1"-->
+<!--                        android:layout_marginLeft="20dp"/>-->
+
+                </RelativeLayout>
+
+
+
+            </androidx.cardview.widget.CardView>
+
+
+
+</LinearLayout>
