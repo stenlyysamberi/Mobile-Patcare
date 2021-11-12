@@ -5,6 +5,7 @@ import com.example.petscare.Class.Balai;
 import com.example.petscare.Class.Dokter;
 import com.example.petscare.Class.Login;
 import com.example.petscare.Class.MyProfil;
+import com.example.petscare.Response.MyResponse;
 import com.google.gson.annotations.Expose;
 
 import java.util.List;
@@ -40,6 +41,21 @@ public interface Interfaces {
             @Field("id") String id
 
     );
+
+    @FormUrlEncoded
+    @POST("addMyPats")
+    Call<MyResponse>  push_MyPets(
+            @Field("id_pemilik_hewan") String id_pemilik,
+            @Field("id_jenis_hewan") String id_jenis,
+            @Field("nama_hewan") String nama_hewa,
+            @Field("tgl_lahir") String tgl,
+            @Field("umur") String umur
+
+
+    );
+
+
+
 
 
 

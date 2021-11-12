@@ -85,6 +85,7 @@
 
 
         <TextView
+            android:id="@+id/menu_my_pat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawableTop="@drawable/ic_baseline_local_hospital_24"

@@ -188,7 +188,13 @@ public class News extends AppCompatActivity {
                 finish();
             }
         });//fungsi untuk keluar
-
+        bottomSheetView.findViewById(R.id.menu_my_pat).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(News.this, MyPat.class));
+                finish();
+            }
+        });
 
         bottomSheetDialog.setContentView(bottomSheetView);
         bottomSheetDialog.show();

@@ -1,33 +1,41 @@
 {
   "project_info": {
-    "project_number": "1064945739647",
-    "project_id": "petscare-2388c",
-    "storage_bucket": "petscare-2388c.appspot.com"
+    "project_number": "246264356100",
+    "project_id": "chat-9b839",
+    "storage_bucket": "chat-9b839.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1064945739647:android:1b4ef68f04da1510881c4a",
+        "mobilesdk_app_id": "1:246264356100:android:fbf6f889962ca186bd4451",
         "android_client_info": {
           "package_name": "com.example.petscare"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1064945739647-7a2h6ptaupnlu4i9gta3orkhtifrp3op.apps.googleusercontent.com",
+          "client_id": "246264356100-86badpgk9i0d0oh4kemtvq750ot8eag8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.petscare",
+            "certificate_hash": "cf6eb9cdc2e03fc0e7f6da77fd507476c9a412e3"
+          }
+        },
+        {
+          "client_id": "246264356100-237lqovc51ropskpmkr72qvi891d5cq9.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCFQJakhrE_sa-YLbtenVuSlAfHDyKonis"
+          "current_key": "AIzaSyDfKM6aX8rFyaNAMG5Yy6u-1rUd7eeZLmQ"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1064945739647-7a2h6ptaupnlu4i9gta3orkhtifrp3op.apps.googleusercontent.com",
+              "client_id": "246264356100-237lqovc51ropskpmkr72qvi891d5cq9.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

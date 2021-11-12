@@ -41,7 +41,7 @@ public class BalaiAdapter extends RecyclerView.Adapter<BalaiAdapter.viewHolder> 
 
         String url = balais.get(position).getImg_p();
         Glide.with(context)
-                .load("http://192.168.42.73:8000/storage/" + url)
+                .load("http://192.168.42.95/:8000/storage/" + url)
                 .placeholder(R.mipmap.ic_launcher_round)
                 .into(holder.img_balai);
 
