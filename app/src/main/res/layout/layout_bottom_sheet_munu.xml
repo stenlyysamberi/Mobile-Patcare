@@ -26,10 +26,10 @@
         android:layout_height="wrap_content"/>
 
     <LinearLayout
-
+        android:gravity=""
+        android:padding="3dp"
         android:orientation="horizontal"
         android:layout_marginBottom="20dp"
-        android:gravity="center_horizontal"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:layout_below="@+id/layanana_lain"
@@ -37,80 +37,156 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-
-        <TextView
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="20dp"
-            android:drawableTop="@drawable/ic_baseline_person_outline_24"
-            android:drawableTint="@color/textCOlor"
-            android:text="Akun"
-            android:textColor="@color/textCOlor" />
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_marginRight="20dp"
-            android:drawableTint="@color/textCOlor"
-            android:drawableTop="@drawable/ic_baseline_text_snippet_24"
-            android:textColor="@color/textCOlor"
-            android:text="Builde"
+            <ImageView
+                android:layout_gravity="center"
+                android:src="@drawable/pat"
+                android:layout_width="50dp"
+                android:layout_height="50dp"/>
+
+            <TextView
+                android:layout_gravity="center"
+                android:id="@+id/menu_my_pat"
+                android:gravity="center_horizontal"
+                android:textColor="@color/textCOlor"
+                android:text="MY PAT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginRight="12dp"
+            android:layout_marginLeft="12dp"
+            android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_marginRight="20dp"
-            android:drawableTint="@color/textCOlor"
-            android:drawableTop="@drawable/ic_baseline_medical_services_24"
-            android:textColor="@color/textCOlor"
-            android:text="Medical"
+            <ImageView
+                android:layout_gravity="center"
+                android:src="@drawable/artikel"
+                android:layout_width="50dp"
+                android:layout_height="50dp"/>
+
+            <TextView
+                android:layout_gravity="center"
+
+
+                android:textColor="@color/textCOlor"
+                android:text="ARTIKEL"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_marginRight="20dp"
-            android:drawableTint="@color/textCOlor"
-            android:drawableTop="@drawable/ic_baseline_bubble_chart_24"
-            android:textColor="@color/textCOlor"
-            android:text="Chat"
+            <ImageView
+                android:id="@+id/medical"
+                android:layout_gravity="center"
+                android:src="@drawable/medical"
+                android:layout_width="50dp"
+                android:layout_height="50dp"/>
+
+            <TextView
+                android:layout_gravity="center"
+                android:textColor="@color/textCOlor"
+                android:text="MEDICAL"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginRight="12dp"
+            android:layout_marginLeft="12dp"
+            android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content">
 
-        <TextView
+            <ImageView
+                android:layout_gravity="center"
+                android:src="@drawable/suntik"
+                android:layout_width="50dp"
+                android:layout_height="50dp"/>
+
+            <TextView
+                android:layout_gravity="center"
+                android:gravity="center_horizontal"
+                android:textColor="@color/textCOlor"
+                android:text="CHAT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="20dp"
-            android:drawableTop="@drawable/ic_baseline_apartment_24"
-            android:drawableTint="@color/textCOlor"
-            android:text="PLTD"
-            android:textColor="@color/textCOlor" />
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_gravity="center"
+                android:src="@drawable/bola"
+                android:layout_width="50dp"
+                android:layout_height="50dp"/>
+
+            <TextView
+                android:layout_gravity="center"
+                android:textColor="@color/textCOlor"
+                android:text="PLTD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
 
 
-        <TextView
-            android:id="@+id/menu_my_pat"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:drawableTop="@drawable/ic_baseline_local_hospital_24"
-            android:drawableTint="@color/textCOlor"
-            android:text="My Pats"
-            android:textColor="@color/textCOlor" />
+
     </LinearLayout>
 
     <LinearLayout
-        android:gravity="center_horizontal"
+        android:padding="3dp"
         android:orientation="horizontal"
+        android:layout_marginBottom="20dp"
+        android:layout_centerHorizontal="true"
         android:layout_below="@+id/menu1"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <TextView
-            android:layout_gravity="center_horizontal"
-            android:id="@+id/keluar"
-            android:onClick="keluar"
+
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:drawableTop="@drawable/ic_baseline_login_24"
-            android:drawableTint="@color/textCOlor"
-            android:text="keluar"
-            android:textColor="@color/textCOlor" />
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_gravity="center"
+                android:src="@drawable/keluar"
+                android:layout_width="50dp"
+                android:layout_height="50dp"/>
+
+            <TextView
+                android:id="@+id/keluar"
+                android:layout_gravity="center"
+                android:textColor="@color/textCOlor"
+                android:text="KELUAR"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+
     </LinearLayout>
+
+
+
+
 
 
 

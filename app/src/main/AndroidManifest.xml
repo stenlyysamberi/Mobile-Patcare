@@ -15,6 +15,9 @@
         android:theme="@style/Theme.PetsCare"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".Medical"
+            android:exported="true" />
+        <activity
             android:name=".MyPat"
             android:exported="true" />
         <activity

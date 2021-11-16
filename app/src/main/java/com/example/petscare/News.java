@@ -188,10 +188,19 @@ public class News extends AppCompatActivity {
                 finish();
             }
         });//fungsi untuk keluar
+
         bottomSheetView.findViewById(R.id.menu_my_pat).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(News.this, MyPat.class));
+                finish();
+            }
+        });
+
+        bottomSheetView.findViewById(R.id.medical).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(News.this, Medical.class));
                 finish();
             }
         });

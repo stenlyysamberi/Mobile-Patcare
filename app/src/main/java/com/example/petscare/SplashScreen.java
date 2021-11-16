@@ -1,11 +1,14 @@
 package com.example.petscare;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -28,16 +31,41 @@ import retrofit2.Response;
 
 public class SplashScreen extends AppCompatActivity {
     SessionManager sessionManager;
+    SwipeRefreshLayout swLayout;
     ProgressBar progressBar;
     TextView result_koneksi;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
-
+        // Inisialisasi SwipeRefreshLayout
+        swLayout = (SwipeRefreshLayout) findViewById(R.id.swipeup_splash_screen);
         progressBar = findViewById(R.id.progressBar);
         result_koneksi = findViewById(R.id.pesanKoneksi);
+
+        // Mengeset properti warna yang berputar pada SwipeRefreshLayout
+        swLayout.setColorSchemeResources(R.color.teal_200,R.color.teal_700);
+
+        // Mengeset listener yang akan dijalankan saat layar di refresh/swipe
+        swLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                result_koneksi.setVisibility(View.INVISIBLE);
+                // Handler untuk menjalankan jeda selama 5 detik
+                new Handler().postDelayed(new Runnable() {
+                    @Override public void run() {
+
+                        // Berhenti berputar/refreshing
+                        swLayout.setRefreshing(false);
+
+                        // fungsi-fungsi lain yang dijalankan saat refresh berhenti
+                       getKoneksi();
+                    }
+                }, 5000);
+            }
+        });
 
 
         if (Build.VERSION.SDK_INT >= 21) {
