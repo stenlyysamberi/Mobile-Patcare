@@ -15,7 +15,7 @@
         android:theme="@style/Theme.PetsCare"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".Medical"
+            android:name=".SplashScreen"
             android:exported="true" />
         <activity
             android:name=".MyPat"
@@ -45,7 +45,7 @@
             android:name=".News"
             android:exported="true" />
         <activity
-            android:name=".SplashScreen"
+            android:name=".Medical"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

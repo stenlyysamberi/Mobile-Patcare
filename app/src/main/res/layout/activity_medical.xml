@@ -114,6 +114,7 @@
                     android:layout_height="match_parent">
 
                     <TextView
+                        android:id="@+id/tv_select_gejala"
                         android:gravity="center_vertical"
                         android:textColor="@color/textCOlor"
                         android:text="Pilih Gejala"
@@ -125,6 +126,25 @@
                         android:layout_height="wrap_content"/>
 
                 </androidx.cardview.widget.CardView>
+
+                <RelativeLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/tv_empty_select"
+                        android:layout_centerInParent="true"
+                        android:text="@string/is_empty_project_please_select_now"
+                        android:textColor="@color/textCOlor"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recy_coba"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </RelativeLayout>
 
             </LinearLayout>
 

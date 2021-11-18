@@ -128,7 +128,7 @@ public class News extends AppCompatActivity {
                             product_Adapter = new DokterAdapter(dokter_List, News.this);
                             recyclerView.setAdapter(product_Adapter);
                             product_Adapter.notifyDataSetChanged();
-                        mShimmerViewContainer.stopShimmerAnimation();
+                            mShimmerViewContainer.stopShimmerAnimation();
                         //mShimmerViewContainer.setVisibility(View.GONE);
 
 

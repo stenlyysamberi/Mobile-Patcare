@@ -3,6 +3,7 @@ package com.example.petscare.Internet;
 import com.example.petscare.Class.Artikel;
 import com.example.petscare.Class.Balai;
 import com.example.petscare.Class.Dokter;
+import com.example.petscare.Class.Gejala;
 import com.example.petscare.Class.Login;
 import com.example.petscare.Class.MyProfil;
 import com.example.petscare.Response.MyResponse;
@@ -41,6 +42,11 @@ public interface Interfaces {
             @Field("id") String id
 
     );
+
+
+    @GET("gejala")
+    Call<List<Gejala>>getGejala();
+
 
     @FormUrlEncoded
     @POST("addMyPats")
