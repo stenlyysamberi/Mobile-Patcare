@@ -21,6 +21,7 @@
         android:layout_height="wrap_content"/>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/simpan_profil"
         android:layout_alignParentRight="true"
         app:cardCornerRadius="5dp"
         app:cardBackgroundColor="@color/teal_700"

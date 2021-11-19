@@ -7,8 +7,9 @@
     android:layout_height="match_parent"
     tools:context=".MyProfile">
 
-    <include layout="@layout/toolbar_profile"
-        android:id="@+id/thely"/>
+    <include
+        android:id="@+id/thely"
+        layout="@layout/toolbar_profile" />
 
     <ScrollView
         android:layout_marginTop="30dp"

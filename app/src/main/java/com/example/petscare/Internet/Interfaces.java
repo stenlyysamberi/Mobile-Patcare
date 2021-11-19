@@ -18,6 +18,7 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 public interface Interfaces {
 
@@ -41,6 +42,16 @@ public interface Interfaces {
     @POST("get_profil")
     Call<MyProfil> fect_profil(
             @Field("id") String id
+
+    );
+
+    @FormUrlEncoded
+    @POST("edit_profil/{id}")
+    Call<MyResponse> edit_profil(
+            @Path("id") String id,
+            @Field("name") String name,
+            @Field("alamat") String alamat,
+            @Field("phone") String phone
 
     );
 

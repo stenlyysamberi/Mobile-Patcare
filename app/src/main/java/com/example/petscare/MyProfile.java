@@ -1,13 +1,16 @@
 package com.example.petscare;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -18,6 +21,7 @@ import com.example.petscare.Class.Login;
 import com.example.petscare.Class.MyProfil;
 import com.example.petscare.Internet.Interfaces;
 import com.example.petscare.Internet.RestClient;
+import com.example.petscare.Response.MyResponse;
 import com.example.petscare.SessionManager.SessionManager;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
@@ -38,16 +42,70 @@ public class MyProfile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        EditText nama_lengkap_profil_saya,alamat_rumah,phone_sya;
+        CardView simpan_profil;
+
         setContentView(R.layout.activity_my_profile);
         sessionManager = new SessionManager(getApplicationContext());
         HashMap<String, String> user = sessionManager.getUserDetails();
         id = user.get(SessionManager.kunci_id);
+        nama_lengkap_profil_saya = findViewById(R.id.nama_lengkap_profil_saya);
+        alamat_rumah = findViewById(R.id.alamat_rumah);
+        phone_sya    = findViewById(R.id.phone_sya);
 
+        simpan_profil = (CardView) findViewById(R.id.simpan_profil);
+        simpan_profil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+            String nama = nama_lengkap_profil_saya.getText().toString();
+            String alamat = alamat_rumah.getText().toString();
+            String phone   = phone_sya.getText().toString();
 
+            if (TextUtils.isEmpty(nama) || TextUtils.isEmpty(alamat) || TextUtils.isEmpty(phone)){
+                Toast.makeText(getApplicationContext(), "Please Enter Text", Toast.LENGTH_SHORT).show();
+            }else{
 
+                update_akun(nama,alamat,phone);
+            }
+
+            }
+        });
 
         getProfile();
+    }
+
+    private void update_akun(final String nama, String alamat, String phone) {
+
+        try {
+            Interfaces i = RestClient.getRetrofitInstance().create(Interfaces.class);
+            Call<MyResponse> cl = i.edit_profil(id,nama,alamat,phone);
+            cl.enqueue(new Callback<MyResponse>() {
+                @Override
+                public void onResponse(Call<MyResponse> call, Response<MyResponse> response) {
+                    Toast.makeText(getApplicationContext(), "Ready", Toast.LENGTH_SHORT).show();
+                    if (response.isSuccessful() && response.body()!=null){
+
+                        if (response.body().getResult().equals("berhasil")){
+                            Toast.makeText(getApplicationContext(), "update success", Toast.LENGTH_SHORT).show();
+                        }else{
+                            Toast.makeText(getApplicationContext(), "update failed", Toast.LENGTH_SHORT).show();
+                        }
+                    }else{
+                        Toast.makeText(getApplicationContext(), "Gagal Connect" , Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<MyResponse> call, Throwable t) {
+                    Log.e("update-failed", String.valueOf(t));
+                }
+            });
+
+        }catch (Exception e){
+            Log.e("logDP", String.valueOf(e));
+        }
+
     }
 
     private void getProfile(){
@@ -97,8 +155,6 @@ public class MyProfile extends AppCompatActivity {
         }
 
     }
-
-
 
     public void model_foto(View view) {
 
