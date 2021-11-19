@@ -21,7 +21,7 @@
                 android:id="@+id/id_gejala_sheet"
                 android:padding="12dp"
                 android:textColor="@color/textCOlor"
-                android:text="Batuk/ Diare"
+                android:text="Batuk/ Diares"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
