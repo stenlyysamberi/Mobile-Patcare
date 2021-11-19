@@ -1,11 +1,13 @@
 package com.example.petscare.Adapter;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -36,6 +38,13 @@ public class GejalaAdapter extends RecyclerView.Adapter<GejalaAdapter.viewHolder
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
         holder.gejala_sheet.setText(gejalaList.get(position).getNama_gejala());
 
+//        holder.gejala_sheet.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Toast.makeText(context.getApplicationContext(),  gejalaList.get(position).getNama_gejala(), Toast.LENGTH_SHORT).show();
+//            }
+//        });
+
     }
 
     @Override
@@ -46,8 +55,10 @@ public class GejalaAdapter extends RecyclerView.Adapter<GejalaAdapter.viewHolder
     public class viewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView gejala_sheet;
         private SparseBooleanArray selectItems = new SparseBooleanArray();
+
         public viewHolder(@NonNull View itemView) {
             super(itemView);
+
             itemView.setOnClickListener(this);
             gejala_sheet = itemView.findViewById(R.id.id_gejala_sheet);
         }
@@ -58,9 +69,14 @@ public class GejalaAdapter extends RecyclerView.Adapter<GejalaAdapter.viewHolder
             if (selectItems.get(getAdapterPosition(),false)){
                 selectItems.delete(getAdapterPosition());
                 view.setSelected(false);
-            }else{
+                
+            } else{
                 selectItems.put(getAdapterPosition(),true);
                 view.setSelected(true);
+
+
+
+
             }
         }
     }

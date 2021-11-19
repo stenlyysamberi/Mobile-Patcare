@@ -58,7 +58,7 @@ public class Medical extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_medical);
 
-        tv_empty = findViewById(R.id.tv_empty_select);
+       
         tv_select_gejala = findViewById(R.id.tv_select_gejala);
 
 
