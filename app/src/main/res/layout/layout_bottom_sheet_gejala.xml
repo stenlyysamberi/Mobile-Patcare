@@ -27,14 +27,14 @@
             android:layout_height="1dp"/>
 
         <TextView
-            android:layout_marginTop="10dp"
             android:id="@+id/text_header"
-            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Gejala Pada peliharaan"
             android:textColor="@color/textCOlor"
             android:textSize="20dp"
-            android:text="Gejala Pada peliharaan"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:textStyle="bold" />
 
         <com.facebook.shimmer.ShimmerFrameLayout
             android:layout_below="@+id/text_header"

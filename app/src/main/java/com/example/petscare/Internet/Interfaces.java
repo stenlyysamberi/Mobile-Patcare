@@ -4,6 +4,7 @@ import com.example.petscare.Class.Artikel;
 import com.example.petscare.Class.Balai;
 import com.example.petscare.Class.Dokter;
 import com.example.petscare.Class.Gejala;
+import com.example.petscare.Class.Jenis;
 import com.example.petscare.Class.Login;
 import com.example.petscare.Class.MyProfil;
 import com.example.petscare.Response.MyResponse;
@@ -46,6 +47,9 @@ public interface Interfaces {
 
     @GET("gejala")
     Call<List<Gejala>>getGejala();
+
+    @GET("jenis")
+    Call<List<Jenis>>getJenis();
 
 
     @FormUrlEncoded

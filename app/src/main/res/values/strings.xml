@@ -3,7 +3,7 @@
     <string name="is_empty_project_please_select_now">is-empty project, please select now!</string>
 
     <string-array name="jenis">
-        <item>Fischer</item>
+        <item>1</item>
         <item>Bauer</item>
         <item>Scheider</item>
         <item>Jäger</item>

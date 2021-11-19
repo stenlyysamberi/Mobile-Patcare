@@ -22,9 +22,11 @@ import android.widget.Toast;
 import com.example.petscare.Adapter.ArtikelAdapter;
 import com.example.petscare.Adapter.GejalaAdapter;
 
+import com.example.petscare.Adapter.JenisAdapter;
 import com.example.petscare.Class.Artikel;
 import com.example.petscare.Class.Dokter;
 import com.example.petscare.Class.Gejala;
+import com.example.petscare.Class.Jenis;
 import com.example.petscare.Class.RecySelect;
 import com.example.petscare.Internet.Interfaces;
 import com.example.petscare.Internet.RestClient;
@@ -40,7 +42,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class Medical extends AppCompatActivity {
-    TextView tv_empty,tv_select_gejala;
+    TextView tv_empty,tv_select_gejala,tv_select_jenis;
 //    boolean[] selectDay;
 //    ArrayList<Integer> dayList = new ArrayList<>();
 //    String[] dayArray = {"Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu"};
@@ -49,9 +51,12 @@ public class Medical extends AppCompatActivity {
     RecyclerView recyclerView;
     GejalaAdapter gejalaAdapter;
     StaggeredGridLayoutManager layoutManager;
-
-    Context mcontex;
     List<Gejala> list;
+
+    JenisAdapter jenisAdapter;
+    StaggeredGridLayoutManager layoutManager_jenis;
+    RecyclerView recyclerView_jenis;
+    List<Jenis> jenis;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,10 +65,15 @@ public class Medical extends AppCompatActivity {
 
        
         tv_select_gejala = findViewById(R.id.tv_select_gejala);
+        tv_select_jenis  = findViewById(R.id.tv_select_jenis);
 
 
-
-
+        tv_select_jenis.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                model_sheet_jenis();
+            }
+        });
 //        selectDay = new boolean[dayArray.length];
         tv_select_gejala.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -146,37 +156,63 @@ public class Medical extends AppCompatActivity {
 
     }
 
-    private void test() {
+
+    private void model_sheet_jenis() {
+
+
+
+        final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(
+                Medical.this,R.style.bottomSheetDialogTheme);
+
+        View bottomSheetView = LayoutInflater.from(getApplicationContext())
+                .inflate(R.layout.layout_bottom_sheet_gejala, (LinearLayout) findViewById(R.id.pilih_gejala));
+
         try {
 
-            Interfaces i = RestClient.getRetrofitInstance().create(Interfaces.class);
-            Call<List<Gejala>> getAll = i.getGejala();
-            getAll.enqueue(new Callback<List<Gejala>>() {
-                @Override
-                public void onResponse(Call<List<Gejala>> call, Response<List<Gejala>> response) {
 
-                    List<Gejala> values = response.body();
-                    Toast.makeText(getApplicationContext(), "" + values.get(0).getNama_gejala(), Toast.LENGTH_SHORT).show();
+
+            TextView tv_header = bottomSheetView.findViewById(R.id.text_header);
+            tv_header.setText("Jenis Peliharaan");
+            ProgressBar progressBar = bottomSheetView.findViewById(R.id.proges_gejala);
+            recyclerView_jenis     = bottomSheetView.findViewById(R.id.recy_bottomSheet_gejala);
+            recyclerView_jenis.addItemDecoration(new RecySelect(this));
+            layoutManager_jenis    = new StaggeredGridLayoutManager(1, LinearLayoutManager.HORIZONTAL);
+            recyclerView_jenis.setLayoutManager(layoutManager_jenis);
+            recyclerView_jenis.setHasFixedSize(true);
+
+            Interfaces i = RestClient.getRetrofitInstance().create(Interfaces.class);
+            Call<List<Jenis>> getAll = i.getJenis();
+            getAll.enqueue(new Callback<List<Jenis>>() {
+                @Override
+                public void onResponse(Call<List<Jenis>> call, Response<List<Jenis>> response) {
+                    List<Jenis> values = response.body();
+                    //Toast.makeText(getApplicationContext(), "" + values.get(0).getJenis(), Toast.LENGTH_SHORT).show();
                     if (response.isSuccessful() && response.body() != null){
-                        list = response.body();
-                        gejalaAdapter = new GejalaAdapter(list, Medical.this);
-                        recyclerView.setAdapter(gejalaAdapter);
-                        gejalaAdapter.notifyDataSetChanged();
+                        jenis = response.body();
+                        jenisAdapter = new JenisAdapter(jenis, Medical.this);
+                        recyclerView_jenis.setAdapter(jenisAdapter);
+                        jenisAdapter.notifyDataSetChanged();
+                        progressBar.setVisibility(View.INVISIBLE);
 
                     }
-
                 }
 
                 @Override
-                public void onFailure(Call<List<Gejala>> call, Throwable t) {
-                    Toast.makeText(getApplicationContext(), "Connection Server Failed :" + t, Toast.LENGTH_SHORT).show();
+                public void onFailure(Call<List<Jenis>> call, Throwable t) {
+                    progressBar.setVisibility(View.INVISIBLE);
+                    Toast.makeText(getApplicationContext(), "Connection Server Failed :" + t, Toast.LENGTH_SHORT);
                 }
             });
 
         }catch (Exception e){
             Log.e("caseGejala", String.valueOf(e));
         }
+
+
+        bottomSheetDialog.setContentView(bottomSheetView);
+        bottomSheetDialog.show();
     }
+
 
     private void model_sheet_gejala() {
 
@@ -229,62 +265,7 @@ public class Medical extends AppCompatActivity {
         bottomSheetDialog.show();
     }
 
-//    private void get_gejala(){
-//        AlertDialog.Builder builder = new AlertDialog.Builder(Medical.this);
-//        //Sett Title
-//        builder.setTitle("Select Gejala");
-//        //SetCancel
-//        builder.setCancelable(false);
-//
-//
-//        try {
-//            Interfaces gejala = RestClient.getRetrofitInstance().create(Interfaces.class);
-//            Call<List<Gejala>> cal = gejala.getGejala();
-//            cal.enqueue(new Callback<List<Gejala>>() {
-//                @Override
-//                public void onResponse(Call<List<Gejala>> call, Response<List<Gejala>> response) {
-//                    List<Gejala> value =response.body();
-//                    if (response.isSuccessful() && response.body() !=null){
-//                        List<String> gejala_List = new ArrayList<>();
-//                            for (int i = 0; i<value.size(); i++){
-//                                gejala_List.add(value.get(i).getNama_gejala());
-//                            }
-//
-//                           builder.setMultiChoiceItems(dayArray,selectDay, new DialogInterface.OnMultiChoiceClickListener() {
-//                                @Override
-//                                public void onClick(DialogInterface dialogInterface, int i, boolean b) {
-//
-//                                    if (b){
-//                                        //Toast.makeText(getApplicationContext(), "Max Select 3", Toast.LENGTH_SHORT).show();
-//                                        //ketika nilai dipilih
-//                                        //tambahkan posisi ke array
-//                                        //dayList.add(i);
-//                                        //tampikan urutan pada list
-//                                        //Collections.sort(dayList);
-//                                    }else{
-//                                        //ketika unceklist data
-//                                        //hapus posisi dari arraylist
-//                                        //dayList.remove(i);
-//                                    }
-//
-//                                }
-//                            });
-//                        builder.show();
-//                    }
-//
-//
-//                }
-//
-//                @Override
-//                public void onFailure(Call<List<Gejala>> call, Throwable t) {
-//
-//                }
-//            });
-//
-//        }catch (Exception e){
-//            Log.e("error", String.valueOf(e));
-//        }
-//    }
+
 
 
 }
