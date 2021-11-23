@@ -31,7 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Gejala Pada peliharaan"
+            android:text="Gejala pada hewan"
             android:textColor="@color/textCOlor"
             android:textSize="20dp"
             android:textStyle="bold" />

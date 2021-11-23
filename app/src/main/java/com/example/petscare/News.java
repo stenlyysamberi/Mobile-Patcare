@@ -205,6 +205,14 @@ public class News extends AppCompatActivity {
             }
         });
 
+        bottomSheetView.findViewById(R.id.go_balai).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(News.this,ProfilBalai.class));
+                finish();
+            }
+        });
+
         bottomSheetDialog.setContentView(bottomSheetView);
         bottomSheetDialog.show();
     }

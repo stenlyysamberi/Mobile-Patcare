@@ -4,8 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import com.example.petscare.Adapter.BalaiAdapter;
 import com.example.petscare.Class.Balai;
@@ -20,21 +25,36 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ProfilBalai extends AppCompatActivity {
+//    NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+//    int notifID = 1;
     private ShimmerFrameLayout mShimmerViewContainer;
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     BalaiAdapter balai_Adapter;
     List<Balai> balai_list;
+    Context context;
+    TextView back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profil_balai);
+        
+        back = findViewById(R.id.title_id);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ProfilBalai.this, News.class));
+                finish();
+            }
+        });
+
         mShimmerViewContainer = findViewById(R.id.shimmer_view_container);
         recyclerView = (RecyclerView) findViewById(R.id.recy_balai);
         layoutManager    = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
+
 
         get_all_balai();
 

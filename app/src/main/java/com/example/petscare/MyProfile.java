@@ -34,6 +34,7 @@ import retrofit2.Response;
 public class MyProfile extends AppCompatActivity {
     SessionManager sessionManager;
     String id;
+    TextView back;
 
     private Bitmap bitmap;
     private static final int INTENT_REQUEST_CODE = 777;
@@ -69,6 +70,15 @@ public class MyProfile extends AppCompatActivity {
                 update_akun(nama,alamat,phone);
             }
 
+            }
+        });
+
+        back = findViewById(R.id.title_id);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MyProfile.this, News.class));
+                finish();
             }
         });
 

@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".ProfilBalai">
 
-    <include layout="@layout/toolbar_profile" android:id="@+id/balai"/>
+    <include layout="@layout/toolbar_default" android:id="@+id/balai"/>
 
 
     <ScrollView
@@ -29,11 +29,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <androidx.cardview.widget.CardView
-                        android:layout_width="380dp"
+                        android:layout_width="match_parent"
                         android:layout_height="180dp"
                         app:cardCornerRadius="15dp"
                         app:cardElevation="10dp"
                         android:padding="30dp"
+                        android:layout_marginRight="13dp"
                         app:cardBackgroundColor="#393E46"
                         android:layout_marginLeft="16dp"
                         android:layout_marginTop="20dp"
@@ -69,6 +70,7 @@
                                 android:layout_marginTop="15dp">
 
                                 <Button
+                                    android:id="@+id/calme"
                                     android:layout_width="150dp"
                                     android:layout_height="55dp"
                                     android:background="@drawable/button"
@@ -78,14 +80,15 @@
                                     android:textColor="#fff"/>
 
                                 <Button
+                                    android:layout_marginLeft="12dp"
+                                    android:layout_toRightOf="@+id/calme"
                                     android:layout_width="150dp"
                                     android:layout_height="55dp"
                                     android:background="@drawable/forget"
                                     android:text="Guide"
                                     android:textSize="16dp"
                                     android:textColor="#32E0C4"
-                                    android:textStyle="bold"
-                                    android:layout_alignParentRight="true"/>
+                                    android:textStyle="bold" />
 
                             </RelativeLayout>
 

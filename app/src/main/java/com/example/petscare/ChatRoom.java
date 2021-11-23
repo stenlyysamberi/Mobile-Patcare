@@ -5,10 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.example.petscare.Internet.Interfaces;
+import com.example.petscare.Internet.RestClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
@@ -25,75 +29,51 @@ import java.util.HashMap;
 
 public class ChatRoom extends AppCompatActivity {
 
-    FirebaseAuth auth;
-
-    DatabaseReference reference;
-    TextView nama_chatroom;
-
-
+    TextView nama_chatroom,phone_chat,kirim;
+    EditText tv_pesan;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat_room);
 
-        FirebaseApp.initializeApp(/*context=*/ this);
-        FirebaseAppCheck firebaseAppCheck = FirebaseAppCheck.getInstance();
-        firebaseAppCheck.installAppCheckProviderFactory(
-                DebugAppCheckProviderFactory.getInstance());
 
-        auth = FirebaseAuth.getInstance();
-
+        kirim         = findViewById(R.id.kirim);
+        tv_pesan      = findViewById(R.id.tv_pesan);
         nama_chatroom = findViewById(R.id.nama_chatroom);
+        phone_chat    = findViewById(R.id.phone_chat);
         String nama = getIntent().getStringExtra("nama");
         String phone = getIntent().getStringExtra("phone");
         String level = getIntent().getStringExtra("level");
+        String pesan = String.valueOf(tv_pesan.getText());
+        phone_chat.setText(phone);
+        nama_chatroom.setText(nama);
 
-        if (TextUtils.isEmpty(nama) || TextUtils.isEmpty(phone) || TextUtils.isEmpty(level)){
-            Toast.makeText(getApplicationContext(), "all fileds are required.", Toast.LENGTH_SHORT).show();
-        }else{
-            nama_chatroom.setText(nama);
-            register(nama,phone,level);
-        }
+        kirim.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (TextUtils.isEmpty(pesan)){
+                    Toast.makeText(getApplicationContext(), "Enter message.", Toast.LENGTH_SHORT).show();
+                }else{
+                    send_message(pesan);
+                }
+
+            }
+        });
+
+
 
 
     }
 
-    private void register(final String nama, String phone, String level){
+    private void send_message( String text_pesan){
 
         try {
 
-            auth.createUserWithEmailAndPassword(phone,level)
-                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-
-                            if (task.isSuccessful()){
-                                FirebaseUser firebaseUser = auth.getCurrentUser();
-                                String userid = firebaseUser.getUid();
-                                reference = FirebaseDatabase.getInstance().getReference("Users").child(userid);
-                                HashMap<String, String> hashMap = new HashMap<>();
-                                hashMap.put("id", userid);
-                                hashMap.put("username", nama);
-                                hashMap.put("imageUrl", "default");
+            Interfaces interfaces = RestClient.getRetrofitInstance().create(Interfaces.class);
 
 
-                                reference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<Void> task) {
-                                        if (task.isSuccessful()){
-                                            Toast.makeText(getApplicationContext(), "Firebase has been connected!", Toast.LENGTH_SHORT).show();
-                                        }else{
-                                            Toast.makeText(getApplicationContext(), "Failed Connected", Toast.LENGTH_SHORT).show();
-                                        }
 
-                                    }
-                                });
-                            }else{
-                                Toast.makeText(getApplicationContext(), "Failed Connected.", Toast.LENGTH_SHORT).show();
-                            }
-
-                        }
-                    });
 
         }catch (Exception e){
             Toast.makeText(getApplicationContext(), "eror" + e, Toast.LENGTH_SHORT).show();

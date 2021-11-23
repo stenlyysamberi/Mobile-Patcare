@@ -28,6 +28,8 @@
             android:layout_height="wrap_content"/>
 
         <EditText
+            android:inputType="text"
+            android:lines="1"
             android:textColorHint="@color/hit"
             android:id="@+id/nama_hewan"
             android:layout_marginTop="20dp"
@@ -37,11 +39,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
-        <Spinner
+
+        <EditText
+            android:inputType="text"
+            android:lines="1"
+            android:textColorHint="@color/hit"
             android:id="@+id/jenis_hewan"
-            android:entries="@array/jenis"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/forget"
+            android:textColor="@color/textCOlor"
+            android:hint="@string/jenis"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
@@ -52,6 +59,8 @@
             android:layout_height="wrap_content">
 
             <EditText
+                android:inputType="text"
+                android:lines="1"
                 android:id="@+id/tlg_lahir"
                 android:textColor="@color/textCOlor"
                 android:textColorHint="@color/hit"
@@ -61,6 +70,9 @@
                 android:layout_height="wrap_content"/>
 
             <EditText
+                android:maxLength="2"
+                android:inputType="text"
+                android:lines="1"
                 android:textColorHint="@color/hit"
                 android:id="@+id/umur"
                 android:textAlignment="center"
@@ -79,7 +91,7 @@
             android:background="@drawable/btn_chat"
             android:layout_marginTop="20dp"
             android:padding="12dp"
-            android:text="add"
+            android:text="simpan"
             android:layout_marginBottom="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>

@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">PetsCare</string>
     <string name="is_empty_project_please_select_now">is-empty project, please select now!</string>
+    <string name="jenis">Jenis</string>
 
     <string-array name="jenis">
         <item>1</item>

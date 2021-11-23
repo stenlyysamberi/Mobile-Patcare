@@ -6,7 +6,9 @@ import com.example.petscare.Class.Dokter;
 import com.example.petscare.Class.Gejala;
 import com.example.petscare.Class.Jenis;
 import com.example.petscare.Class.Login;
+import com.example.petscare.Class.MyPet;
 import com.example.petscare.Class.MyProfil;
+import com.example.petscare.Class.Pesan;
 import com.example.petscare.Response.MyResponse;
 import com.google.gson.annotations.Expose;
 
@@ -66,12 +68,28 @@ public interface Interfaces {
     @FormUrlEncoded
     @POST("addMyPats")
     Call<MyResponse>  push_MyPets(
-            @Field("id_pemilik_hewan") String id_pemilik,
-            @Field("id_jenis_hewan") String id_jenis,
+            @Field("id_pemilik_hewans") String id_pemilik,
+            @Field("id_jenis_hewans") String id_jenis,
             @Field("nama_hewan") String nama_hewa,
             @Field("tgl_lahir") String tgl,
             @Field("umur") String umur
 
+
+    );
+
+    @FormUrlEncoded
+    @POST("pet/{id}")
+    Call<List<MyPet>> get_myPat(
+            @Path("id") String id,
+            @Field("ids") String ids
+    );
+
+    @FormUrlEncoded
+    @POST("message/{senderId}")
+    Call<List<Pesan>> kirim_pesan(
+            @Path("senderId") String senderId,
+            @Field("message") String message,
+            @Field("currenttime") String currenttime
 
     );
 

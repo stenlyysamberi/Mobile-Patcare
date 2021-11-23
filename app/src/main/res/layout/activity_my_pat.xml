@@ -9,32 +9,51 @@
 
     <include android:id="@+id/mypat1" layout="@layout/toolbar_default"/>
 
-    <LinearLayout
-        android:layout_below="@id/mypat1"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:layout_below="@+id/mypat1"
+        android:id="@+id/mypats_refresh"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ScrollView
+        <LinearLayout
+            android:layout_below="@id/mypat1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <com.facebook.shimmer.ShimmerFrameLayout
+            <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recy_myPats"
+                <com.facebook.shimmer.ShimmerFrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_margin="12dp"
+                        android:visibility="invisible"
+                        android:id="@+id/recy_myPats"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
 
-                </androidx.recyclerview.widget.RecyclerView>
+                    <TextView
+                        android:id="@+id/ket_pat"
+                        android:gravity="center"
+                        android:textColor="@color/textCOlor"
+                        android:text="Data Found"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
 
-            </com.facebook.shimmer.ShimmerFrameLayout>
 
-        </ScrollView>
 
-    </LinearLayout>
+
+                </com.facebook.shimmer.ShimmerFrameLayout>
+
+            </ScrollView>
+
+        </LinearLayout>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
 
     <Button
         android:id="@+id/add_my_pats"

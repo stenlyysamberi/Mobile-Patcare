@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -40,8 +41,9 @@ public class BalaiAdapter extends RecyclerView.Adapter<BalaiAdapter.viewHolder> 
         holder.tgl_tulis.setText(balais.get(position).getCreated_at());
 
         String url = balais.get(position).getImg_p();
+        Toast.makeText(context.getApplicationContext(), "" + url, Toast.LENGTH_SHORT).show();
         Glide.with(context)
-                .load("http://192.168.42.196/:8000/storage/" + url)
+                .load("http://192.168.42.175/:8000/storage/" + url)
                 .placeholder(R.mipmap.ic_launcher_round)
                 .into(holder.img_balai);
 
