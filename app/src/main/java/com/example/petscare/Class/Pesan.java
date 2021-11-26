@@ -1,16 +1,44 @@
 package com.example.petscare.Class;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class Pesan {
-    String message;
-    String senderId;
-    long timestamp;
-    String currenttime;
-    
+
+    @SerializedName("message")
+    @Expose
+    private  String message;
+
+    @SerializedName("senderId")
+    @Expose
+    private  String senderId;
+
+    @SerializedName("receiveruid")
+    @Expose
+    private  String receiveruid;
+
+    public String getReceiveruid() {
+        return receiveruid;
+    }
+
+    public void setReceiveruid(String receiveruid) {
+        this.receiveruid = receiveruid;
+    }
+
+    @SerializedName("timestamp")
+    @Expose
+    private  String timestamp;
+
+    @SerializedName("currenttime")
+    @Expose
+    private  String currenttime;
+
+
     public Pesan(){
 
     }
 
-    public Pesan(String message, String senderId, long timestamp, String currenttime) {
+    public Pesan(String message, String senderId, String timestamp, String currenttime) {
         this.message = message;
         this.senderId = senderId;
         this.timestamp = timestamp;
@@ -33,11 +61,11 @@ public class Pesan {
         this.senderId = senderId;
     }
 
-    public long getTimestamp() {
+    public String getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(long timestamp) {
+    public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;
     }
 

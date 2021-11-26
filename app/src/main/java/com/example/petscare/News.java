@@ -213,9 +213,21 @@ public class News extends AppCompatActivity {
             }
         });
 
+        bottomSheetView.findViewById(R.id.chat_activiy).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(News.this,ChatActivity.class));
+                finish();
+            }
+        });
+
         bottomSheetDialog.setContentView(bottomSheetView);
         bottomSheetDialog.show();
     }
 
 
+    public void go_chat_activity(View view) {
+        startActivity(new Intent(News.this, ChatActivity.class));
+        finish();
+    }
 }

@@ -18,11 +18,11 @@ import com.example.petscare.R;
 
 import java.util.List;
 
-public class DokterAdapter extends RecyclerView.Adapter<DokterAdapter.bebas> {
+public class TopDokterAdapter extends RecyclerView.Adapter<TopDokterAdapter.bebas> {
     List<Dokter> getAlls;
     Context context;
 
-    public DokterAdapter(List<Dokter> getAlls, Context context) {
+    public TopDokterAdapter(List<Dokter> getAlls, Context context) {
         this.getAlls = getAlls;
         this.context = context;
     }
@@ -30,7 +30,7 @@ public class DokterAdapter extends RecyclerView.Adapter<DokterAdapter.bebas> {
     @NonNull
     @Override
     public bebas onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.row_news, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.row_top_dokter, parent, false);
         return new bebas(view);
     }
 
@@ -76,10 +76,10 @@ public class DokterAdapter extends RecyclerView.Adapter<DokterAdapter.bebas> {
         public bebas(@NonNull View itemView) {
             super(itemView);
 //            id = itemView.findViewById(R.id.id);
-            judul = itemView.findViewById(R.id.judul);
+            judul = itemView.findViewById(R.id.ct1);
 //            isi = itemView.findViewById(R.id.isi);
-            date= itemView.findViewById(R.id.date);
-            imageView = itemView.findViewById(R.id.img1);
+            date= itemView.findViewById(R.id.ct2);
+            imageView = itemView.findViewById(R.id.img_ct0);
         }
     }
 }

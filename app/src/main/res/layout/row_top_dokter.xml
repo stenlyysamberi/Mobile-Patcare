@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="30dp">
+
+        <androidx.cardview.widget.CardView
+            app:cardCornerRadius="50dp"
+            app:cardBackgroundColor="@color/white"
+            android:id="@+id/img1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/img_ct0"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/card_img1"/>
+
+        </androidx.cardview.widget.CardView>
+
+
+
+        <TextView
+            android:id="@+id/ct1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dr. Adam hack"
+            android:textStyle="bold"
+            android:textColor="#1C1C1C"
+            android:textSize="20dp"
+            android:layout_toRightOf="@id/img1"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"/>
+
+        <TextView
+            android:id="@+id/ct2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ct1"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/img1"
+            android:text="Cardiologist Specialist"
+            android:textColor="#707070" />
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

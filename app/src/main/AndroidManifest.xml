@@ -39,7 +39,7 @@
             android:name=".ChatRoom"
             android:exported="true" />
         <activity
-            android:name=".Home"
+            android:name=".ChatActivity"
             android:exported="true" />
         <activity
             android:name=".News"

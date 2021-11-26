@@ -85,12 +85,20 @@ public interface Interfaces {
     );
 
     @FormUrlEncoded
-    @POST("message/{senderId}")
-    Call<List<Pesan>> kirim_pesan(
-            @Path("senderId") String senderId,
+    @POST("message")
+    Call<MyResponse> kirim_pesan(
+            @Field("senderId") String senderId,
             @Field("message") String message,
-            @Field("currenttime") String currenttime
+            @Field("currenttime") String currenttime,
+            @Field("receiveruid") String receiveruid
 
+    );
+
+    @FormUrlEncoded
+    @POST("personal")
+    Call<List<Pesan>> get_pesan(
+            @Field("senderId") String senderId,
+            @Field("receiveruid") String receiveruid
     );
 
 

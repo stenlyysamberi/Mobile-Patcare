@@ -77,6 +77,9 @@
                      android:layout_height="wrap_content"/>
 
                  <EditText
+
+                     android:lines="1"
+                     android:inputType="text"
                      android:id="@+id/nama_lengkap_profil_saya"
                      android:text="Stenly Samberi"
                      android:textColor="@color/textCOlor"
@@ -99,6 +102,9 @@
                      android:layout_height="wrap_content"/>
 
                  <EditText
+
+                     android:lines="1"
+                     android:inputType="text"
                      android:id="@+id/alamat_rumah"
                      android:text="Jl. Airport Sentani, Kab. Jayapura"
                      android:textColor="@color/textCOlor"
@@ -121,6 +127,9 @@
                      android:layout_height="wrap_content"/>
 
                  <EditText
+                     android:maxLength="13"
+                     android:lines="1"
+                     android:inputType="phone"
                      android:id="@+id/phone_sya"
                      android:text="+62 81224452338"
                      android:textColor="@color/textCOlor"
