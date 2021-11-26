@@ -37,13 +37,13 @@ public class BalaiAdapter extends RecyclerView.Adapter<BalaiAdapter.viewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
-        holder.judul_balai.setText(balais.get(position).getJudul());
-        holder.tgl_tulis.setText(balais.get(position).getCreated_at());
+         holder.judul_balai.setText(balais.get(position).getJudul());
+//        holder.tgl_tulis.setText(balais.get(position).getCreated_at());
 
         String url = balais.get(position).getImg_p();
-        Toast.makeText(context.getApplicationContext(), "" + url, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(context.getApplicationContext(), "" + url, Toast.LENGTH_SHORT).show();
         Glide.with(context)
-                .load("http://192.168.42.175/:8000/storage/" + url)
+                .load("http://192.168.42.246:8000/storage/" + url)
                 .placeholder(R.mipmap.ic_launcher_round)
                 .into(holder.img_balai);
 
@@ -80,8 +80,8 @@ public class BalaiAdapter extends RecyclerView.Adapter<BalaiAdapter.viewHolder> 
             super(itemView);
             img_balai = itemView.findViewById(R.id.img_balai);
             judul_balai = itemView.findViewById(R.id.judul_balai);
-            tgl_tulis   = itemView.findViewById(R.id.tgl_tulis);
-            penulis     = itemView.findViewById(R.id.penulis);
+//            tgl_tulis   = itemView.findViewById(R.id.tgl_tulis);
+//            penulis     = itemView.findViewById(R.id.penulis);
         }
     }
 }

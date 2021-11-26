@@ -1,5 +1,7 @@
 package com.example.petscare;
 
+import static java.util.TimeZone.SHORT;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -161,21 +163,23 @@ public class ChatRoom extends AppCompatActivity {
 
     private void send_message(String text_pesan, String receiveruid ){
         try {
-        //D/ate date = new Date();
-        ///currenttime=simpleDateFormat.format(calendar.getTime());
-        String currenttime = DateFormat.getDateTimeInstance().format(new Date());
+
+            Date date = new Date();
+            //DateFormat dateFormat = android.text.format.DateFormat.getDateFormat(getApplicationContext());
+            //String tgl = dateFormat.getDateTimeInstance(DateFormat.AM_PM_FIELD).format(date);
+            String tgl = DateFormat.getTimeInstance(DateFormat.SHORT).format(date);
 
 
 
             Interfaces interfaces = RestClient.getRetrofitInstance().create(Interfaces.class);
-            Call<MyResponse> call = interfaces.kirim_pesan(id,text_pesan,currenttime,receiveruid);
+            Call<MyResponse> call = interfaces.kirim_pesan(id,text_pesan,tgl,receiveruid);
             call.enqueue(new Callback<MyResponse>() {
                 @Override
                 public void onResponse(Call<MyResponse> call, Response<MyResponse> response) {
                     if (response.isSuccessful() && response.body()!=null){
 
                         if (response.body().getResult().equals("massage sended.")){
-                            Toast.makeText(getApplicationContext(), "massage sended.", Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(getApplicationContext(), "massage sended.", Toast.LENGTH_SHORT).show();
                             tv_pesan.setText("");
 
                             get_message(id, receiveruid);
