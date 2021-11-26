@@ -43,7 +43,7 @@ public class DokterAdapter extends RecyclerView.Adapter<DokterAdapter.bebas> {
 
         String url = getAlls.get(position).getImage();
         Glide.with(context)
-                .load("http://192.168.42.72/:8000/storage/" + url)
+                .load("http://192.168.42.246:8000/storage/" + url)
                 .placeholder(R.mipmap.ic_launcher_round)
                 .into(holder.imageView);
 
@@ -56,6 +56,7 @@ public class DokterAdapter extends RecyclerView.Adapter<DokterAdapter.bebas> {
                 i.putExtra("nama", getAlls.get(position).getNama());
                 i.putExtra("phone", getAlls.get(position).getPhone());
                 i.putExtra("level", getAlls.get(position).getLevel());
+                i.putExtra("profil", getAlls.get(position).getImage());
 
                 context.startActivity(i);
 

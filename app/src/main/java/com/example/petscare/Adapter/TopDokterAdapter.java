@@ -43,7 +43,7 @@ public class TopDokterAdapter extends RecyclerView.Adapter<TopDokterAdapter.beba
 
         String url = getAlls.get(position).getImage();
         Glide.with(context)
-                .load("http://192.168.42.72/:8000/storage/" + url)
+                .load("http://192.168.42.246:8000/storage/" + url)
                 .placeholder(R.mipmap.ic_launcher_round)
                 .into(holder.imageView);
 

@@ -11,10 +11,12 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.bumptech.glide.Glide;
 import com.example.petscare.Adapter.BalaiAdapter;
 import com.example.petscare.Adapter.PesanAdapter;
 import com.example.petscare.Class.Pesan;
@@ -49,6 +51,7 @@ public class ChatRoom extends AppCompatActivity {
 
     String currenttime;
     Calendar calendar;
+    ImageView dp_dokter_chat;
     SimpleDateFormat simpleDateFormat;
 
     SessionManager sessionManager;
@@ -71,6 +74,7 @@ public class ChatRoom extends AppCompatActivity {
         sessionManager = new SessionManager(getApplicationContext());
         HashMap<String, String> user = sessionManager.getUserDetails();
         id = user.get(SessionManager.kunci_id);
+        dp_dokter_chat = findViewById(R.id.dp_dokter_chat);
 
 
         recyclerView = findViewById(R.id.recy_chat_room);
@@ -86,9 +90,15 @@ public class ChatRoom extends AppCompatActivity {
         String nama = getIntent().getStringExtra("nama");
         String phone = getIntent().getStringExtra("phone");
         String level = getIntent().getStringExtra("level");
+        String image = getIntent().getStringExtra("profil");
         String receiveruid = getIntent().getStringExtra("id");
         phone_chat.setText(phone);
         nama_chatroom.setText(nama);
+
+        Glide.with(this)
+                .load("http://192.168.42.246:8000/storage/" + image)
+                .placeholder(R.mipmap.ic_launcher_round)
+                .into(dp_dokter_chat);
 
         TextView textView = findViewById(R.id.title_id);
         textView.setOnClickListener(new View.OnClickListener() {

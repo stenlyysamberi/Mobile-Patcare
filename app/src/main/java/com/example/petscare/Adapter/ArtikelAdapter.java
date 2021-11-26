@@ -23,7 +23,7 @@ public class ArtikelAdapter extends RecyclerView.Adapter<ArtikelAdapter.myartike
 
     List<Artikel> artikelList;
     Context context;
-    String url = "storage/";
+
 
     public ArtikelAdapter(List<Artikel> artikelList, Context context) {
         this.artikelList = artikelList;
@@ -39,6 +39,7 @@ public class ArtikelAdapter extends RecyclerView.Adapter<ArtikelAdapter.myartike
 
     @Override
     public void onBindViewHolder(@NonNull myartikel holder, int position) {
+
         holder.nama_gejala.setText(artikelList.get(position).getTitle());
         holder.jenis.setText(artikelList.get(position).getJenis());
 
@@ -62,9 +63,9 @@ public class ArtikelAdapter extends RecyclerView.Adapter<ArtikelAdapter.myartike
         });
 
 
-        url = artikelList.get(position).getImage();
+//        url = artikelList.get(position).getImage();
         Glide.with(context)
-                .load("http://192.168.42.72/:8000/storage/" + url)
+                .load("http://192.168.42.246:8000/storage/" + artikelList.get(position).getImage())
                 .placeholder(R.mipmap.ic_launcher_round)
                 .into(holder.imageView);
 

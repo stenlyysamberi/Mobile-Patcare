@@ -230,4 +230,9 @@ public class News extends AppCompatActivity {
         startActivity(new Intent(News.this, ChatActivity.class));
         finish();
     }
+
+    public void go_to_guide_activity(View view) {
+        startActivity(new Intent(News.this, Artikel.class));
+        finish();
+    }
 }

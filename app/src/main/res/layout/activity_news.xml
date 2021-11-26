@@ -145,6 +145,7 @@
                     android:layout_height="match_parent"/>
 
                 <TextView
+                    android:onClick="go_to_guide_activity"
                     android:gravity="end|center_vertical"
                     android:drawableTint="@color/textCOlor"
                     android:text="view all"
@@ -187,7 +188,7 @@
                     android:layout_height="match_parent"/>
 
                 <TextView
-
+                    android:onClick="go_chat_activity"
                     android:drawableTint="@color/textCOlor"
                     android:drawableRight="@drawable/ic_baseline_navigate_next_24"
                     android:gravity="end|center_vertical"

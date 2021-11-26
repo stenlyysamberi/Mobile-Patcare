@@ -2,9 +2,11 @@ package com.example.petscare;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.Html;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -24,6 +26,15 @@ public class DetailArtikel extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_artikel);
         Bundle extras = getIntent().getExtras();
+
+        TextView textView = findViewById(R.id.title_id);
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(DetailArtikel.this, News.class));
+                finish();
+            }
+        });
 
         id = extras.getString("id");
         title = extras.getString("title");
@@ -57,7 +68,7 @@ public class DetailArtikel extends AppCompatActivity {
         detil_isi.setText(Html.fromHtml(isi_content));
 
         Glide.with(this)
-                .load("http://192.168.42.177:8000/storage/" + image)
+                .load("http://192.168.42.246:8000/storage/" + image)
                 .into(imageView);
 
 
